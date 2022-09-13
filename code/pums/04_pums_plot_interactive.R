@@ -57,7 +57,7 @@ tooltip_css <- "background-color:#CACACA;"
 
 plot_interactive <- girafe(ggobj = plot,   
                            width_svg = 11,
-                           height_svg = 5, 
+                           height_svg = 8, 
                            options = list(
                              opts_tooltip(css = tooltip_css)
                            )
