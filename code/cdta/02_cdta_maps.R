@@ -10,6 +10,9 @@ source("code/cdta/01_census_pull_cdta.R")
 
 ### map by CDTA - broadband ------------
 
+# source control
+rr <- HTML('<small> Source: Census ACS 5-Year 2020 Table B28002, NYC Planning CDTA </small>')
+
 labels_broadband <- paste0("<h3>",paste0(internet_cdta_shp$CDTAName),"</h3>",
                 "<p>","Households Without Broadband: ",round(internet_cdta_shp$no_broadband * 100, 0), "%", "</p>")
 
@@ -30,8 +33,8 @@ map <- leaflet() %>%
   setView(-73.941281,40.704103, zoom=11) %>% 
   addPolygons(data = internet_cdta_shp, 
               weight = 1,
-              color = "grey",
-              stroke = FALSE,
+              color = "white",
+              stroke = TRUE,
               fillColor = ~pal_broadband_cdta(internet_cdta_shp$no_broadband * 100),
               fillOpacity = 0.9, 
               label = lapply(labels_broadband,HTML)) %>% 
@@ -39,9 +42,10 @@ map <- leaflet() %>%
             pal = pal_broadband_cdta, 
             opacity = 0.9,
             values = internet_cdta_shp$no_broadband * 100,
-            title =  "Percent of NYC Households Without</br>High Speed Broadband Access",
+            title =  "Percent of Households Without</br>High Speed Broadband Access</br>In Each Community District",
             labFormat = labelFormat(suffix = "%")) %>%
-  setMapWidgetStyle(list(background= "white"))
+  setMapWidgetStyle(list(background= "white")) %>% 
+  addControl(rr, position = "bottomright")
   
 map
 
@@ -56,8 +60,8 @@ map_bw <- leaflet() %>%
   setView(-73.941281,40.704103, zoom=11) %>% 
   addPolygons(data = internet_cdta_shp, 
               weight = 1,
-              color = "grey",
-              stroke = FALSE,
+              color = "white",
+              stroke = TRUE,
               fillColor = ~pal_bw_broadband_cdta(internet_cdta_shp$no_broadband * 100),
               fillOpacity = 0.9, 
               label = lapply(labels_broadband,HTML)) %>% 
@@ -65,9 +69,10 @@ map_bw <- leaflet() %>%
             pal = pal_bw_broadband_cdta, 
             opacity = 0.9,
             values = internet_cdta_shp$no_broadband * 100,
-            title =  "Percent of NYC Households Without</br>High Speed Broadband Access",
+            title =  "Percent of Households Without</br>High Speed Broadband Access</br>In Each Community District",
             labFormat = labelFormat(suffix = "%")) %>%
-  setMapWidgetStyle(list(background= "white"))
+  setMapWidgetStyle(list(background= "white")) %>% 
+  addControl(rr, position = "bottomright")
 
 map_bw
 
@@ -79,8 +84,11 @@ mapshot(map_bw, file = "visuals/map_broadband_cdta.png",
 
 ### map by CDTA - poverty ------------
 
+# source control
+rr <- HTML('<small> Source: Census ACS 5-Year 2020 Table S1701, NYC Planning CDTA </small>')
+
 labels_poverty <- paste0("<h3>",paste0(internet_cdta_shp$CDTAName),"</h3>",
-                 "<p>","Income Below 200% of Poverty Line: ",round(internet_cdta_shp$poverty * 100, 0), "%", "</p>")
+                 "<p>","Income Below 200% of Poverty Level: ",round(internet_cdta_shp$poverty * 100, 0), "%", "</p>")
 
 
 # histogram of data to choose breaks
@@ -99,8 +107,8 @@ map <- leaflet() %>%
   setView(-73.941281,40.704103, zoom=11) %>% 
   addPolygons(data = internet_cdta_shp, 
               weight = 1,
-              color = "grey",
-              stroke = FALSE,
+              color = "white",
+              stroke = TRUE,
               fillColor = ~pal_poverty_cdta(internet_cdta_shp$poverty * 100),
               fillOpacity = 0.9, 
               label = lapply(labels_poverty,HTML)) %>% 
@@ -108,9 +116,10 @@ map <- leaflet() %>%
             pal = pal_poverty_cdta, 
             opacity = 0.9,
             values = internet_cdta_shp$poverty * 100,
-            title =  "Percent of NYC Individuals</br>Below 200% of Poverty Line",
+            title =  "Percent of Individuals</br>Below 200% of Poverty Level</br>In Each Community District",
             labFormat = labelFormat(suffix = "%")) %>%
-  setMapWidgetStyle(list(background= "white"))
+  setMapWidgetStyle(list(background= "white")) %>% 
+  addControl(rr, position = "bottomright")
 
 
 map
@@ -126,8 +135,8 @@ map_bw <- leaflet() %>%
   setView(-73.941281,40.704103, zoom=11) %>% 
   addPolygons(data = internet_cdta_shp, 
               weight = 1,
-              color = "grey",
-              stroke = FALSE,
+              color = "white",
+              stroke = TRUE,
               fillColor = ~pal_bw_poverty_cdta(internet_cdta_shp$poverty * 100),
               fillOpacity = 0.9, 
               label = lapply(labels_poverty,HTML)) %>% 
@@ -135,9 +144,10 @@ map_bw <- leaflet() %>%
             pal = pal_bw_poverty_cdta, 
             opacity = 0.9,
             values = internet_cdta_shp$poverty * 100,
-            title =  "Percent of NYC Individuals</br>Below 200% of Poverty Line",
+            title =  "Percent of Individuals</br>Below 200% of Poverty Level</br>In Each Community District",
             labFormat = labelFormat(suffix = "%")) %>%
-  setMapWidgetStyle(list(background= "white"))
+  setMapWidgetStyle(list(background= "white")) %>% 
+  addControl(rr, position = "bottomright")
 
 map_bw
 
