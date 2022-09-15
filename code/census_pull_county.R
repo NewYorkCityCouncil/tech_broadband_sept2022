@@ -32,9 +32,9 @@ vars <- c("NAME", "GEO_ID",
 # get available geographies for ACS5 2020
 geos <- listCensusMetadata(name = "acs/acs5", vintage = 2020, type = "geographies")
 
-### data by census tract (2020) -----------
+### data by county (2020) -----------
 
-# get variables for NYC by census tract
+# get variables for NYC by county
 internet_county <- getCensus(
   # must add a census api key
   key = Sys.getenv("KEY"),
