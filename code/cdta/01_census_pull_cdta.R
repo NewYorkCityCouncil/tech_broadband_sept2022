@@ -92,7 +92,7 @@ internet_cdta <- internet_ct_cdta %>%
   summarise(
     # no internet access (note: it is access not subscription because there is another category for access but no subscription)
     no_access = sum(B28002_013E) / sum(B28002_001E),
-    # no broadband subscription: 1 - proportion of with broadband such as cable, fiber optic or DSL
+    # no broadband subscription any type
     no_broadband_anytype = 1 - (sum(B28002_004E) / sum(B28002_001E)),
     # no broadband subscription: 1 - proportion of with broadband such as cable, fiber optic or DSL
     no_broadband = 1 - (sum(B28002_007E) / sum(B28002_001E)),
