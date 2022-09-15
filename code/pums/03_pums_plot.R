@@ -17,7 +17,7 @@ p <- ggplot(data=plot_df, aes(x=reorder(group, -hi_speed_pct), y=hi_speed_pct)) 
     y = "Percent of Households Without Broadband (High-Speed) Internet service", 
     title = "Lack of Broadband (High-Speed) Internet Access in NYC by Group", 
     subtitle = "Black, Hispanic, low-income, and senior residents have less access to broadband compared to the NYC average", 
-    caption = "Source: PUMS (ACS 5-Year 2020)"
+    caption = "Source: ACS 5-Year 2020 (PUMS)"
     ) +
   geom_text(show.legend = F,
             label= paste0(round(plot_df$hi_speed_pct, 0), "%"), 

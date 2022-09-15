@@ -219,7 +219,7 @@ plot_df <- as.data.frame(matrix(nrow = 5, ncol = 2)) %>%
     hi_speed_pct = V2
     )
 
-plot_df[1,] <- c("NYC Average", round(100 - (overall * 100), 2))
+plot_df[1,] <- c("NYC Average", round(0.283 * 100, 2)) # Use 28.3 from the census_pull_country.R
 plot_df[2,] <- c("Black", round(100 - (race_black * 100), 2))
 plot_df[3,] <- c("Hispanic", round(100 - (race_hispanic * 100), 2))
 plot_df[4,] <- c("Low-Income", round(100 - (poverty * 100), 2))

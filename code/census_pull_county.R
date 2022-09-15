@@ -47,19 +47,18 @@ internet_county <- getCensus(
 internet_nyc <- internet_county %>%
   group_by(state) %>%
   summarise(
+    total_house = sum(B28002_001E),
     # no internet access (note: it is access not subscription because there is another category for access but no subscription)
-    no_access = sum(B28002_013E) / sum(B28002_001E),
+    no_access = sum(B28002_013E) / total_house,
     # no broadband subscription: 1 - proportion of with broadband such as cable, fiber optic or DSL
-    no_broadband = 1 - (sum(B28002_007E) / sum(B28002_001E)),
+    no_broadband = 1 - (sum(B28002_007E) / total_house),
     # cellular data plan and other internet subscription
-    cell_and_int = (sum(B28002_005E) - sum(B28002_006E)) / sum(B28002_001E),
+    cell_and_int = (sum(B28002_005E) - sum(B28002_006E)) / total_house,
     # only cellular data plan with no other type of Internet subscription
-    cell_only = sum(B28002_006E) / sum(B28002_001E), 
+    cell_only = sum(B28002_006E) / total_house, 
     # only home internet connection (broadband + satellite + other subscription)
-    homeint_only = (sum(B28002_008E) + sum(B28002_010E) + sum(B28002_011E)) / sum(B28002_001E),
-    # neither home broadband nor cell 
-
-  )
+    homeint_only = (sum(B28002_008E) + sum(B28002_010E) + sum(B28002_011E)) / total_house
+    )
 
 
 

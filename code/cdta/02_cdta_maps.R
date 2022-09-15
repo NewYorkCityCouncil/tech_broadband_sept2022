@@ -30,7 +30,7 @@ pal_broadband_cdta = colorBin(
 )
 
 map <- leaflet(options = leafletOptions(zoomControl = FALSE, minZoom = 10, maxZoom = 16)) %>%
-  setView(-73.941281,40.704103, zoom=11) %>% 
+  setView(-73.941281,40.704103, zoom=10) %>% 
   addPolygons(data = internet_cdta_shp, 
               weight = 1,
               color = "white",
@@ -57,7 +57,7 @@ pal_bw_broadband_cdta = colorBin(
 )
 
 map_bw <- leaflet() %>%
-  setView(-73.941281,40.704103, zoom=11) %>% 
+  setView(-73.941281,40.704103, zoom=10) %>% 
   addPolygons(data = internet_cdta_shp, 
               weight = 1,
               color = "white",
@@ -104,7 +104,7 @@ pal_poverty_cdta = colorBin(
 )
 
 map <- leaflet(options = leafletOptions(zoomControl = FALSE, minZoom = 10, maxZoom = 16)) %>%
-  setView(-73.941281,40.704103, zoom=11) %>% 
+  setView(-73.941281,40.704103, zoom=10) %>% 
   addPolygons(data = internet_cdta_shp, 
               weight = 1,
               color = "white",
@@ -132,7 +132,7 @@ pal_bw_poverty_cdta = colorBin(
 )
 
 map_bw <- leaflet() %>%
-  setView(-73.941281,40.704103, zoom=11) %>% 
+  setView(-73.941281,40.704103, zoom=10) %>% 
   addPolygons(data = internet_cdta_shp, 
               weight = 1,
               color = "white",
