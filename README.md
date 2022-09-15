@@ -11,10 +11,11 @@
 - 2020 5-Year ACS Survey (using R library censusapi)
   - Table B28002, “Presence and Types of Internet Subscriptions in Household"
   - Table S1701, “Poverty Status in the Past 12 Months”
-
 - Public Use Microdata Sample (PUMS) 2020 5-Year ACS Survey (using R library tidycensus)
 - [NYSED remote learning survey](https://github.com/new-york-civil-liberties-union/NYSED-Remote-Learning-Survey)
 - [NYC Planning Community District Tabulation Areas (CDTA)](https://www1.nyc.gov/site/planning/data-maps/open-data/census-download-metadata.page)
+
+NOTE: Broadband is defined as "Broadband (high speed) Internet service such as cable, fiber optic, or DSL service"
 
 ### Code
 
