@@ -29,7 +29,7 @@ If code is numbered, run it in order.
   - 02_pums_map.R: Map broadband access at PUMA level. 
   - 03_pums_plot.R: Create plot of access to broadband across demographic groups. 
   - 04_pums_plot_interactive.R: Create interactive plot of access to broadband across demographic groups. 
- - student_survey
+- student_survey
   - 01_student_survey.R: Plot NYC DOE student internet/device access using NYSED-Remote-Learning-Survey by County. 
   - 02_student_survey_interactive_plot.R: Make student survey plot interactive. 
  - census_pull_county.R: # Pull census internet subscription and population data at county level; Aggregate to NYC.
