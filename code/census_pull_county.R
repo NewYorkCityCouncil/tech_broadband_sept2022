@@ -35,7 +35,7 @@ geos <- listCensusMetadata(name = "acs/acs5", vintage = 2020, type = "geographie
 ### data by county (2020) -----------
 
 # get variables for NYC by county
-internet_county <- getCensus(
+internet_county_2020 <- getCensus(
   # must add a census api key
   key = Sys.getenv("KEY"),
   name = "acs/acs5",
@@ -44,7 +44,7 @@ internet_county <- getCensus(
   region = "county:005,047,081,085,061", 
   regionin = "state:36")
 
-internet_nyc <- internet_county %>%
+internet_nyc_2020 <- internet_county %>%
   group_by(state) %>%
   summarise(
     total_house = sum(B28002_001E),
@@ -61,4 +61,31 @@ internet_nyc <- internet_county %>%
     )
 
 
+### data by county (2021, 1-year estimates) -----------
+
+# get variables for NYC by county
+internet_county_2021 <- getCensus(
+  # must add a census api key
+  key = Sys.getenv("KEY"),
+  name = "acs/acs1",
+  vintage = 2021,
+  vars = vars, 
+  region = "county:005,047,081,085,061", 
+  regionin = "state:36")
+
+internet_nyc_2021 <- internet_county_2021 %>%
+  group_by(state) %>%
+  summarise(
+    total_house = sum(B28002_001E),
+    # no internet access (note: it is access not subscription because there is another category for access but no subscription)
+    no_access = sum(B28002_013E) / total_house,
+    # no broadband subscription: 1 - proportion of with broadband such as cable, fiber optic or DSL
+    no_broadband = 1 - (sum(B28002_007E) / total_house),
+    # cellular data plan and other internet subscription
+    cell_and_int = (sum(B28002_005E) - sum(B28002_006E)) / total_house,
+    # only cellular data plan with no other type of Internet subscription
+    cell_only = sum(B28002_006E) / total_house, 
+    # only home internet connection (broadband + satellite + other subscription)
+    homeint_only = (sum(B28002_008E) + sum(B28002_010E) + sum(B28002_011E)) / total_house
+  )
 
