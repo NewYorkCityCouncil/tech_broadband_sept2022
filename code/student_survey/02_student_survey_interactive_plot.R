@@ -23,10 +23,12 @@ plot <-
     y = "Percent Without Access", 
     title = "NYC DOE Students Lack of Access to Adequate Internet / Device", 
     fill = "",
-    subtitle = "11 - 13 percent of NYC DOE students in each borough lacked access to adequate internet in Fall 2020", 
-    caption = "Source: NYSED survey conducted in Fall 2020 about student access to devices and internet\nobtained by the NYCLU via a Freedom of Information Law request"
+    subtitle = "About 11 to 13 percent of NYC DOE students in each borough lacked access to adequate internet in Fall 2020", 
+    caption = "Source: NYSED survey conducted in Fall 2020 about student access to devices and internet.\nNYCLU obtained the survey via a Freedom of Information Law request."
   ) +
-  geom_text(aes(label = paste0(round(lack_pct, 0), "%")), position = position_dodge(width = 0.5), vjust = 0.5, hjust = -0.25) +
+  geom_text(aes(label = paste0(round(lack_pct, 0), "%")), 
+            position = position_dodge(width = 0.5), 
+            vjust = 0.5, hjust = -0.25, size = 5) +
   scale_y_continuous(
     breaks = c(0, 5, 10, 15, 20),
     label = c("0%", "5%", "10%", "15%", "20%"), 
@@ -34,6 +36,8 @@ plot <-
   ) + 
   scale_fill_manual(values = c("#FAA916", "#2F56A6")) +
   theme(legend.position="top", 
+        plot.caption = element_text(size = 10),
+        legend.text = element_text(size=13),
         panel.grid.minor.x = element_blank(),
         panel.grid.major.x = element_blank(),
         panel.grid.minor.y = element_blank(),
@@ -41,15 +45,16 @@ plot <-
         panel.grid.major.y = element_line(colour = "#E6E6E6"),
         panel.background = element_blank(),
         axis.line = element_line(colour = "#666666"),
-        axis.title.x = element_text(margin = 
+        axis.title.x = element_text(size = 14, 
+                                    margin = 
                                       margin(t = 10, r = 0, b = 0, l = 0)),
         #        text = element_text(family = "Open Sans"),
         axis.text.y = element_text(size = 14, 
                                    margin = margin(t = 0, r = 10, b = 0, l = 0)),
         
-        axis.text.x = element_text(size = 12, 
+        axis.text.x = element_text(size = 15, 
                                    margin = margin(t = 10, r = 0, b = 0, l = 0)),
-        plot.subtitle=element_text(size=12),
+        plot.subtitle=element_text(size=14),
         plot.title = element_text(family = "Georgia",size = 16)) +
   coord_flip()
 
