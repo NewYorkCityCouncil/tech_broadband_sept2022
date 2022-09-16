@@ -8,6 +8,8 @@
 
 ### Data Sources
 
+- 2021 1-Year ACS Survey (using R library censusapi)
+  - Table B28002, “Presence and Types of Internet Subscriptions in Household"
 - 2020 5-Year ACS Survey (using R library censusapi)
   - Table B28002, “Presence and Types of Internet Subscriptions in Household"
   - Table S1701, “Poverty Status in the Past 12 Months”
