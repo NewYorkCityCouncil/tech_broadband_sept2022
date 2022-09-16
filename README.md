@@ -1,6 +1,6 @@
 # Broadband and Equal Access to the Internet in New York City
 
-- Finding #1: Nearly a third of New York City households lack broadband service at home and the percentage is even higher for Black, Hispanic, low-income, and senior households.
+- Finding #1: About a quarter of New York City households lack broadband service at home and the percentage is even higher for Black, Hispanic, low-income, and senior households.
 - Finding #2: For some community districts — many in the Bronx and high-poverty areas — over 40% of households do not have high-speed broadband service.
 - Finding #3: Between 11 and 13 percent of NYC DOE students in each borough lacked access to adequate internet at home during remote learning.
 
