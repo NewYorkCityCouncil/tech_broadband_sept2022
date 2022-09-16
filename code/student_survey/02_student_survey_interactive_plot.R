@@ -32,7 +32,7 @@ plot <-
     label = c("0%", "5%", "10%", "15%", "20%"), 
     limits = c(0,20)
   ) + 
-  scale_fill_manual(values = c("#800000", "#2F56A6")) +
+  scale_fill_manual(values = c("#FAA916", "#2F56A6")) +
   theme(legend.position="top", 
         panel.grid.minor.x = element_blank(),
         panel.grid.major.x = element_blank(),
