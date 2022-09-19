@@ -100,7 +100,7 @@ p <- ggplot(data=plot_df, aes(x=reorder(county, -lack_pct), y=lack_pct, fill=typ
     label = c("0%", "5%", "10%", "15%", "20%"), 
     limits = c(0,20)
   ) + 
-  scale_fill_manual(values = c("#CACACA", "#666666")) +
+  scale_fill_manual(values = c("#FAA916", "#2F56A6")) +
   theme(legend.position="top", 
         panel.grid.minor.x = element_blank(),
         panel.grid.major.x = element_blank(),
